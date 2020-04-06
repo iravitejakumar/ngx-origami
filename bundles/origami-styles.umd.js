@@ -1,7 +1,7 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@polymer/polymer/lib/utils/style-gather'), require('@codebakery/origami/util'), require('@codebakery/origami/polyfills'), require('@angular/common'), require('@angular/platform-browser')) :
-    typeof define === 'function' && define.amd ? define('@codebakery/origami/styles', ['exports', '@angular/core', '@angular/router', '@polymer/polymer/lib/utils/style-gather', '@codebakery/origami/util', '@codebakery/origami/polyfills', '@angular/common', '@angular/platform-browser'], factory) :
-    (global = global || self, factory((global.codebakery = global.codebakery || {}, global.codebakery.origami = global.codebakery.origami || {}, global.codebakery.origami.styles = {}), global.ng.core, global.ng.router, global.styleGather, global.codebakery.origami.util, global.codebakery.origami.polyfills, global.ng.common, global.ng.platformBrowser));
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@polymer/polymer/lib/utils/style-gather'), require('ngx-origami/util'), require('ngx-origami/polyfills'), require('@angular/common'), require('@angular/platform-browser')) :
+    typeof define === 'function' && define.amd ? define('ngx-origami/styles', ['exports', '@angular/core', '@angular/router', '@polymer/polymer/lib/utils/style-gather', 'ngx-origami/util', 'ngx-origami/polyfills', '@angular/common', '@angular/platform-browser'], factory) :
+    (global = global || self, factory((global['ngx-origami'] = global['ngx-origami'] || {}, global['ngx-origami'].styles = {}), global.ng.core, global.ng.router, global.styleGather, global['ngx-origami'].util, global['ngx-origami'].polyfills, global.ng.common, global.ng.platformBrowser));
 }(this, (function (exports, core, router, styleGather, util, polyfills, common, platformBrowser) { 'use strict';
 
     /*! *****************************************************************************
@@ -752,7 +752,7 @@
         return ShadyCSSSharedStylesHost;
     }(platformBrowser["ɵDomSharedStylesHost"]));
     /**
-     * Factory to resolve runtime errors for Ivy compilation
+     * Factory that creates a new ShadyCSSSharedStylesHost.
      */
     function ShadyCSSSharedStylesHostFactory() {
         return new ShadyCSSSharedStylesHost(document);

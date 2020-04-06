@@ -1,7 +1,7 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@codebakery/origami/forms'), require('@codebakery/origami/styles'), require('@codebakery/origami/templates'), require('@codebakery/origami/polyfills')) :
-    typeof define === 'function' && define.amd ? define('@codebakery/origami', ['exports', '@angular/core', '@codebakery/origami/forms', '@codebakery/origami/styles', '@codebakery/origami/templates', '@codebakery/origami/polyfills'], factory) :
-    (global = global || self, factory((global.codebakery = global.codebakery || {}, global.codebakery.origami = {}), global.ng.core, global.codebakery.origami.forms, global.codebakery.origami.styles, global.codebakery.origami.templates, global.codebakery.origami.polyfills));
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('ngx-origami/forms'), require('ngx-origami/styles'), require('ngx-origami/templates'), require('ngx-origami/polyfills')) :
+    typeof define === 'function' && define.amd ? define('ngx-origami', ['exports', '@angular/core', 'ngx-origami/forms', 'ngx-origami/styles', 'ngx-origami/templates', 'ngx-origami/polyfills'], factory) :
+    (global = global || self, factory(global['ngx-origami'] = {}, global.ng.core, global['ngx-origami'].forms, global['ngx-origami'].styles, global['ngx-origami'].templates, global['ngx-origami'].polyfills));
 }(this, (function (exports, core, forms, styles, templates, polyfills) { 'use strict';
 
     /*! *****************************************************************************

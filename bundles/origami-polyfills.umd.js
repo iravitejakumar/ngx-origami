@@ -1,7 +1,7 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@codebakery/origami/util'), require('@angular/core')) :
-    typeof define === 'function' && define.amd ? define('@codebakery/origami/polyfills', ['exports', '@codebakery/origami/util', '@angular/core'], factory) :
-    (global = global || self, factory((global.codebakery = global.codebakery || {}, global.codebakery.origami = global.codebakery.origami || {}, global.codebakery.origami.polyfills = {}), global.codebakery.origami.util, global.ng.core));
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('ngx-origami/util'), require('@angular/core')) :
+    typeof define === 'function' && define.amd ? define('ngx-origami/polyfills', ['exports', 'ngx-origami/util', '@angular/core'], factory) :
+    (global = global || self, factory((global['ngx-origami'] = global['ngx-origami'] || {}, global['ngx-origami'].polyfills = {}), global['ngx-origami'].util, global.ng.core));
 }(this, (function (exports, util, core) { 'use strict';
 
     /*! *****************************************************************************

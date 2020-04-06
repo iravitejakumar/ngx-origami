@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/forms')) :
-    typeof define === 'function' && define.amd ? define('@codebakery/origami/forms', ['exports', '@angular/core', '@angular/forms'], factory) :
-    (global = global || self, factory((global.codebakery = global.codebakery || {}, global.codebakery.origami = global.codebakery.origami || {}, global.codebakery.origami.forms = {}), global.ng.core, global.ng.forms));
+    typeof define === 'function' && define.amd ? define('ngx-origami/forms', ['exports', '@angular/core', '@angular/forms'], factory) :
+    (global = global || self, factory((global['ngx-origami'] = global['ngx-origami'] || {}, global['ngx-origami'].forms = {}), global.ng.core, global.ng.forms));
 }(this, (function (exports, core, forms) { 'use strict';
 
     /*! *****************************************************************************

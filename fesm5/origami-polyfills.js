@@ -1,5 +1,5 @@
 import { __read, __decorate } from 'tslib';
-import { whenSet } from '@codebakery/origami/util';
+import { whenSet } from 'ngx-origami/util';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 var readyPromise;

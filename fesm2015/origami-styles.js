@@ -2,8 +2,8 @@ import { __decorate, __awaiter, __param } from 'tslib';
 import { APP_INITIALIZER, NgModuleRef, RendererFactory2, ComponentFactoryResolver, ViewEncapsulation, NgModule, InjectionToken, Inject, Optional } from '@angular/core';
 import { Router } from '@angular/router';
 import { stylesFromModule } from '@polymer/polymer/lib/utils/style-gather';
-import { whenSet } from '@codebakery/origami/util';
-import { WebComponentsReadyModule } from '@codebakery/origami/polyfills';
+import { whenSet } from 'ngx-origami/util';
+import { WebComponentsReadyModule } from 'ngx-origami/polyfills';
 import { DOCUMENT } from '@angular/common';
 import { ɵDomSharedStylesHost } from '@angular/platform-browser';
 
@@ -517,7 +517,7 @@ ShadyCSSSharedStylesHost = __decorate([
     __param(1, Inject(USING_APPLY))
 ], ShadyCSSSharedStylesHost);
 /**
- * Factory to resolve runtime errors for Ivy compilation
+ * Factory that creates a new ShadyCSSSharedStylesHost.
  */
 function ShadyCSSSharedStylesHostFactory() {
     return new ShadyCSSSharedStylesHost(document);

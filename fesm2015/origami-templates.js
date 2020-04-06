@@ -1,8 +1,8 @@
 import { InjectionToken, ElementRef, Inject, Optional, NgZone, Directive, APP_INITIALIZER, NgModule } from '@angular/core';
 import { __awaiter, __decorate, __param } from 'tslib';
-import { whenSet, wrapAndDefineDescriptor } from '@codebakery/origami/util';
+import { whenSet, wrapAndDefineDescriptor } from 'ngx-origami/util';
 import { camelToDashCase } from '@polymer/polymer/lib/utils/case-map';
-import { WebComponentsReadyModule } from '@codebakery/origami/polyfills';
+import { WebComponentsReadyModule } from 'ngx-origami/polyfills';
 
 /**
  * Token that represents the Polymer host that `<template>` elements should

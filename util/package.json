@@ -10,5 +10,5 @@
   "fesm2015": "../fesm2015/origami-util.js",
   "typings": "origami-util.d.ts",
   "metadata": "origami-util.metadata.json",
-  "name": "@codebakery/origami/util"
+  "name": "ngx-origami/util"
 }

@@ -12,7 +12,7 @@ export declare class ShadyCSSSharedStylesHost extends DomSharedStylesHost {
     onStylesAdded(additions: Set<string>): void;
 }
 /**
- * Factory to resolve runtime errors for Ivy compilation
+ * Factory that creates a new ShadyCSSSharedStylesHost.
  */
 export declare function ShadyCSSSharedStylesHostFactory(): ShadyCSSSharedStylesHost;
 /**

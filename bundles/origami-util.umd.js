@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-    typeof define === 'function' && define.amd ? define('@codebakery/origami/util', ['exports'], factory) :
-    (global = global || self, factory((global.codebakery = global.codebakery || {}, global.codebakery.origami = global.codebakery.origami || {}, global.codebakery.origami.util = {})));
+    typeof define === 'function' && define.amd ? define('ngx-origami/util', ['exports'], factory) :
+    (global = global || self, factory((global['ngx-origami'] = global['ngx-origami'] || {}, global['ngx-origami'].util = {})));
 }(this, (function (exports) { 'use strict';
 
     /**
