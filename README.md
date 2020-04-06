@@ -1,4 +1,4 @@
-# Origami
+# ngx-origami
 
 _Origami is the art of folding paper with angles to form beautiful creations._
 
