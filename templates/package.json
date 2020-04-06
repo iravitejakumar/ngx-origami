@@ -10,5 +10,5 @@
   "fesm2015": "../fesm2015/origami-templates.js",
   "typings": "origami-templates.d.ts",
   "metadata": "origami-templates.metadata.json",
-  "name": "@codebakery/origami/templates"
+  "name": "ngx-origami/templates"
 }

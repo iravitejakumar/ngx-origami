@@ -10,5 +10,5 @@
   "typings": "origami-styles.d.ts",
   "metadata": "origami-styles.metadata.json",
   "sideEffects": false,
-  "name": "@codebakery/origami/styles"
+  "name": "ngx-origami/styles"
 }

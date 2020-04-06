@@ -10,5 +10,5 @@
   "typings": "origami-forms.d.ts",
   "metadata": "origami-forms.metadata.json",
   "sideEffects": false,
-  "name": "@codebakery/origami/forms"
+  "name": "ngx-origami/forms"
 }

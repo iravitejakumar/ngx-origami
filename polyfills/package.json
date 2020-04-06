@@ -10,5 +10,5 @@
   "typings": "origami-polyfills.d.ts",
   "metadata": "origami-polyfills.metadata.json",
   "sideEffects": false,
-  "name": "@codebakery/origami/polyfills"
+  "name": "ngx-origami/polyfills"
 }
