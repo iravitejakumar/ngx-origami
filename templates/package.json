@@ -1,0 +1,14 @@
+{
+  "$schema": "../node_modules/ng-packagr/package.schema.json",
+  "sideEffects": true,
+  "main": "../bundles/origami-templates.umd.js",
+  "module": "../fesm5/origami-templates.js",
+  "es2015": "../fesm2015/origami-templates.js",
+  "esm5": "../esm5/templates/origami-templates.js",
+  "esm2015": "../esm2015/templates/origami-templates.js",
+  "fesm5": "../fesm5/origami-templates.js",
+  "fesm2015": "../fesm2015/origami-templates.js",
+  "typings": "origami-templates.d.ts",
+  "metadata": "origami-templates.metadata.json",
+  "name": "@codebakery/origami/templates"
+}

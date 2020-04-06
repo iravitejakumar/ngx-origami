@@ -1,0 +1,14 @@
+{
+  "$schema": "../node_modules/ng-packagr/package.schema.json",
+  "main": "../bundles/origami-forms.umd.js",
+  "module": "../fesm5/origami-forms.js",
+  "es2015": "../fesm2015/origami-forms.js",
+  "esm5": "../esm5/forms/origami-forms.js",
+  "esm2015": "../esm2015/forms/origami-forms.js",
+  "fesm5": "../fesm5/origami-forms.js",
+  "fesm2015": "../fesm2015/origami-forms.js",
+  "typings": "origami-forms.d.ts",
+  "metadata": "origami-forms.metadata.json",
+  "sideEffects": false,
+  "name": "@codebakery/origami/forms"
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "../node_modules/ng-packagr/package.schema.json",
+  "main": "../bundles/origami-polyfills.umd.js",
+  "module": "../fesm5/origami-polyfills.js",
+  "es2015": "../fesm2015/origami-polyfills.js",
+  "esm5": "../esm5/polyfills/origami-polyfills.js",
+  "esm2015": "../esm2015/polyfills/origami-polyfills.js",
+  "fesm5": "../fesm5/origami-polyfills.js",
+  "fesm2015": "../fesm2015/origami-polyfills.js",
+  "typings": "origami-polyfills.d.ts",
+  "metadata": "origami-polyfills.metadata.json",
+  "sideEffects": false,
+  "name": "@codebakery/origami/polyfills"
+}

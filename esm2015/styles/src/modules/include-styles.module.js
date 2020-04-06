@@ -1,0 +1,21 @@
+import { __decorate } from "tslib";
+import { NgModule } from '@angular/core';
+import { INJECT_STYLES_PROVIDER } from './inject-styles';
+/**
+ * Importing this module will add the ability for Angular components to include
+ * Polymer style modules with the `@IncludeStyles()` decorator. This module
+ * only needs to be imported once at the root component.
+ *
+ * This module _requires_` @angular/router` in order to inject styles for lazy
+ * loaded components. Use `InjectStylesNoRouterModule` if your application does
+ * not use `@angular/router`.
+ */
+let IncludeStylesModule = class IncludeStylesModule {
+};
+IncludeStylesModule = __decorate([
+    NgModule({
+        providers: [INJECT_STYLES_PROVIDER]
+    })
+], IncludeStylesModule);
+export { IncludeStylesModule };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5jbHVkZS1zdHlsZXMubW9kdWxlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGNvZGViYWtlcnkvb3JpZ2FtaS9zdHlsZXMvIiwic291cmNlcyI6WyJzcmMvbW9kdWxlcy9pbmNsdWRlLXN0eWxlcy5tb2R1bGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLE9BQU8sRUFBRSxRQUFRLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDekMsT0FBTyxFQUFFLHNCQUFzQixFQUFFLE1BQU0saUJBQWlCLENBQUM7QUFFekQ7Ozs7Ozs7O0dBUUc7QUFJSCxJQUFhLG1CQUFtQixHQUFoQyxNQUFhLG1CQUFtQjtDQUFHLENBQUE7QUFBdEIsbUJBQW1CO0lBSC9CLFFBQVEsQ0FBQztRQUNSLFNBQVMsRUFBRSxDQUFDLHNCQUFzQixDQUFDO0tBQ3BDLENBQUM7R0FDVyxtQkFBbUIsQ0FBRztTQUF0QixtQkFBbUIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBOZ01vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgSU5KRUNUX1NUWUxFU19QUk9WSURFUiB9IGZyb20gJy4vaW5qZWN0LXN0eWxlcyc7XG5cbi8qKlxuICogSW1wb3J0aW5nIHRoaXMgbW9kdWxlIHdpbGwgYWRkIHRoZSBhYmlsaXR5IGZvciBBbmd1bGFyIGNvbXBvbmVudHMgdG8gaW5jbHVkZVxuICogUG9seW1lciBzdHlsZSBtb2R1bGVzIHdpdGggdGhlIGBASW5jbHVkZVN0eWxlcygpYCBkZWNvcmF0b3IuIFRoaXMgbW9kdWxlXG4gKiBvbmx5IG5lZWRzIHRvIGJlIGltcG9ydGVkIG9uY2UgYXQgdGhlIHJvb3QgY29tcG9uZW50LlxuICpcbiAqIFRoaXMgbW9kdWxlIF9yZXF1aXJlc19gIEBhbmd1bGFyL3JvdXRlcmAgaW4gb3JkZXIgdG8gaW5qZWN0IHN0eWxlcyBmb3IgbGF6eVxuICogbG9hZGVkIGNvbXBvbmVudHMuIFVzZSBgSW5qZWN0U3R5bGVzTm9Sb3V0ZXJNb2R1bGVgIGlmIHlvdXIgYXBwbGljYXRpb24gZG9lc1xuICogbm90IHVzZSBgQGFuZ3VsYXIvcm91dGVyYC5cbiAqL1xuQE5nTW9kdWxlKHtcbiAgcHJvdmlkZXJzOiBbSU5KRUNUX1NUWUxFU19QUk9WSURFUl1cbn0pXG5leHBvcnQgY2xhc3MgSW5jbHVkZVN0eWxlc01vZHVsZSB7fVxuIl19

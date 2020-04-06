@@ -1,0 +1,47 @@
+import { InjectionToken } from '@angular/core';
+/**
+ * Token that represents the Polymer host that `<template>` elements should
+ * refer to for Polymer data binding. The token will be provided when using
+ * `polymerHost()`.
+ */
+export var POLYMER_HOST = new InjectionToken('polymerHost');
+/**
+ * Creates a `Provider` that connects a components' Polymer `<template>`
+ * elements' data binding system to the host component instance.
+ *
+ * This enables the use of event, one-way, and two-way Polymer data binding
+ * within a `<template>` that refers to the host Angular component's methods and
+ * properties.
+ *
+ * @param componentType the component type whose instances should be provided
+ *   as the Polymer host to the instance's `<template>` elements.
+ */
+export function polymerHost(componentType) {
+    return {
+        provide: POLYMER_HOST,
+        useFactory: patchPolymerHost,
+        deps: [componentType]
+    };
+}
+/**
+ * Patch a data host instance with methods that are expected by Polymer's
+ * `TemplateStamp` mixin. These methods are used to set up data bindings, and
+ * are normally provided when a Polymer element extends from `TemplateStamp`.
+ *
+ * Angular components do not extend this mixin, which is why we need to patch
+ * the required methods. Instances will automatically be patched when using
+ * `polymerHost()`.
+ *
+ * @param dataHost the host to patch
+ * @returns the patched dataHost
+ */
+export function patchPolymerHost(dataHost) {
+    // Add methods from TemplateStamp that templatize instances expect
+    if (!dataHost._addEventListenerToNode) {
+        dataHost._addEventListenerToNode = function (node, eventName, handler) {
+            node.addEventListener(eventName, handler);
+        };
+    }
+    return dataHost;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicG9seW1lckhvc3QuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AY29kZWJha2VyeS9vcmlnYW1pL3RlbXBsYXRlcy8iLCJzb3VyY2VzIjpbInNyYy9wb2x5bWVySG9zdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsY0FBYyxFQUFrQixNQUFNLGVBQWUsQ0FBQztBQUUvRDs7OztHQUlHO0FBQ0gsTUFBTSxDQUFDLElBQU0sWUFBWSxHQUFHLElBQUksY0FBYyxDQUFNLGFBQWEsQ0FBQyxDQUFDO0FBRW5FOzs7Ozs7Ozs7O0dBVUc7QUFDSCxNQUFNLFVBQVUsV0FBVyxDQUFDLGFBQXdCO0lBQ2xELE9BQU87UUFDTCxPQUFPLEVBQUUsWUFBWTtRQUNyQixVQUFVLEVBQUUsZ0JBQWdCO1FBQzVCLElBQUksRUFBRSxDQUFDLGFBQWEsQ0FBQztLQUN0QixDQUFDO0FBQ0osQ0FBQztBQUVEOzs7Ozs7Ozs7OztHQVdHO0FBQ0gsTUFBTSxVQUFVLGdCQUFnQixDQUFDLFFBQWE7SUFDNUMsa0VBQWtFO0lBQ2xFLElBQUksQ0FBQyxRQUFRLENBQUMsdUJBQXVCLEVBQUU7UUFDckMsUUFBUSxDQUFDLHVCQUF1QixHQUFHLFVBQ2pDLElBQVUsRUFDVixTQUFpQixFQUNqQixPQUEyQjtZQUUzQixJQUFJLENBQUMsZ0JBQWdCLENBQUMsU0FBUyxFQUFFLE9BQU8sQ0FBQyxDQUFDO1FBQzVDLENBQUMsQ0FBQztLQUNIO0lBRUQsT0FBTyxRQUFRLENBQUM7QUFDbEIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEluamVjdGlvblRva2VuLCBQcm92aWRlciwgVHlwZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuXG4vKipcbiAqIFRva2VuIHRoYXQgcmVwcmVzZW50cyB0aGUgUG9seW1lciBob3N0IHRoYXQgYDx0ZW1wbGF0ZT5gIGVsZW1lbnRzIHNob3VsZFxuICogcmVmZXIgdG8gZm9yIFBvbHltZXIgZGF0YSBiaW5kaW5nLiBUaGUgdG9rZW4gd2lsbCBiZSBwcm92aWRlZCB3aGVuIHVzaW5nXG4gKiBgcG9seW1lckhvc3QoKWAuXG4gKi9cbmV4cG9ydCBjb25zdCBQT0xZTUVSX0hPU1QgPSBuZXcgSW5qZWN0aW9uVG9rZW48YW55PigncG9seW1lckhvc3QnKTtcblxuLyoqXG4gKiBDcmVhdGVzIGEgYFByb3ZpZGVyYCB0aGF0IGNvbm5lY3RzIGEgY29tcG9uZW50cycgUG9seW1lciBgPHRlbXBsYXRlPmBcbiAqIGVsZW1lbnRzJyBkYXRhIGJpbmRpbmcgc3lzdGVtIHRvIHRoZSBob3N0IGNvbXBvbmVudCBpbnN0YW5jZS5cbiAqXG4gKiBUaGlzIGVuYWJsZXMgdGhlIHVzZSBvZiBldmVudCwgb25lLXdheSwgYW5kIHR3by13YXkgUG9seW1lciBkYXRhIGJpbmRpbmdcbiAqIHdpdGhpbiBhIGA8dGVtcGxhdGU+YCB0aGF0IHJlZmVycyB0byB0aGUgaG9zdCBBbmd1bGFyIGNvbXBvbmVudCdzIG1ldGhvZHMgYW5kXG4gKiBwcm9wZXJ0aWVzLlxuICpcbiAqIEBwYXJhbSBjb21wb25lbnRUeXBlIHRoZSBjb21wb25lbnQgdHlwZSB3aG9zZSBpbnN0YW5jZXMgc2hvdWxkIGJlIHByb3ZpZGVkXG4gKiAgIGFzIHRoZSBQb2x5bWVyIGhvc3QgdG8gdGhlIGluc3RhbmNlJ3MgYDx0ZW1wbGF0ZT5gIGVsZW1lbnRzLlxuICovXG5leHBvcnQgZnVuY3Rpb24gcG9seW1lckhvc3QoY29tcG9uZW50VHlwZTogVHlwZTxhbnk+KTogUHJvdmlkZXIge1xuICByZXR1cm4ge1xuICAgIHByb3ZpZGU6IFBPTFlNRVJfSE9TVCxcbiAgICB1c2VGYWN0b3J5OiBwYXRjaFBvbHltZXJIb3N0LFxuICAgIGRlcHM6IFtjb21wb25lbnRUeXBlXVxuICB9O1xufVxuXG4vKipcbiAqIFBhdGNoIGEgZGF0YSBob3N0IGluc3RhbmNlIHdpdGggbWV0aG9kcyB0aGF0IGFyZSBleHBlY3RlZCBieSBQb2x5bWVyJ3NcbiAqIGBUZW1wbGF0ZVN0YW1wYCBtaXhpbi4gVGhlc2UgbWV0aG9kcyBhcmUgdXNlZCB0byBzZXQgdXAgZGF0YSBiaW5kaW5ncywgYW5kXG4gKiBhcmUgbm9ybWFsbHkgcHJvdmlkZWQgd2hlbiBhIFBvbHltZXIgZWxlbWVudCBleHRlbmRzIGZyb20gYFRlbXBsYXRlU3RhbXBgLlxuICpcbiAqIEFuZ3VsYXIgY29tcG9uZW50cyBkbyBub3QgZXh0ZW5kIHRoaXMgbWl4aW4sIHdoaWNoIGlzIHdoeSB3ZSBuZWVkIHRvIHBhdGNoXG4gKiB0aGUgcmVxdWlyZWQgbWV0aG9kcy4gSW5zdGFuY2VzIHdpbGwgYXV0b21hdGljYWxseSBiZSBwYXRjaGVkIHdoZW4gdXNpbmdcbiAqIGBwb2x5bWVySG9zdCgpYC5cbiAqXG4gKiBAcGFyYW0gZGF0YUhvc3QgdGhlIGhvc3QgdG8gcGF0Y2hcbiAqIEByZXR1cm5zIHRoZSBwYXRjaGVkIGRhdGFIb3N0XG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBwYXRjaFBvbHltZXJIb3N0KGRhdGFIb3N0OiBhbnkpOiBhbnkge1xuICAvLyBBZGQgbWV0aG9kcyBmcm9tIFRlbXBsYXRlU3RhbXAgdGhhdCB0ZW1wbGF0aXplIGluc3RhbmNlcyBleHBlY3RcbiAgaWYgKCFkYXRhSG9zdC5fYWRkRXZlbnRMaXN0ZW5lclRvTm9kZSkge1xuICAgIGRhdGFIb3N0Ll9hZGRFdmVudExpc3RlbmVyVG9Ob2RlID0gKFxuICAgICAgbm9kZTogTm9kZSxcbiAgICAgIGV2ZW50TmFtZTogc3RyaW5nLFxuICAgICAgaGFuZGxlcjogKGU6IEV2ZW50KSA9PiB2b2lkXG4gICAgKSA9PiB7XG4gICAgICBub2RlLmFkZEV2ZW50TGlzdGVuZXIoZXZlbnROYW1lLCBoYW5kbGVyKTtcbiAgICB9O1xuICB9XG5cbiAgcmV0dXJuIGRhdGFIb3N0O1xufVxuIl19

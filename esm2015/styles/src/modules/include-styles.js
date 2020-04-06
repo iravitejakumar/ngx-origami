@@ -1,0 +1,45 @@
+/**
+ * Map of types to style modules.
+ */
+let TYPE_STYLE_MODULES = new Map();
+/**
+ * Decorator that registers style modules to be injected for a given component
+ * type. One or more style modules may be specified.
+ *
+ * @param styleModule a style module to include
+ * @param styleModules additional style modules to include
+ * @returns a class decorator
+ */
+export function IncludeStyles(...styleModules) {
+    return (target) => {
+        TYPE_STYLE_MODULES.set(target, styleModules);
+        return target;
+    };
+}
+/**
+ * Retrieves all types that have been decorated with `@IncludeStyles()`.
+ *
+ * @returns an array of all decorated types
+ */
+export function getRegisteredTypes() {
+    return Array.from(TYPE_STYLE_MODULES.keys());
+}
+/**
+ * Retrieves the style modules for a given type that was decorated with
+ * `@IncludeStyles()`
+ *
+ * @param type the type to retrieve style modules for
+ * @returns an array of style modules for the decorated type, or an empty
+ *   array if the type was not decorated
+ */
+export function getStyleModulesFor(type) {
+    return (type && TYPE_STYLE_MODULES.get(type)) || [];
+}
+/**
+ * Resets all types decorated with `@IncludeStyles()`. Should only be used for
+ * testing.
+ */
+export function resetIncludeStyles() {
+    TYPE_STYLE_MODULES = new Map();
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5jbHVkZS1zdHlsZXMuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AY29kZWJha2VyeS9vcmlnYW1pL3N0eWxlcy8iLCJzb3VyY2VzIjpbInNyYy9tb2R1bGVzL2luY2x1ZGUtc3R5bGVzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBOztHQUVHO0FBQ0gsSUFBSSxrQkFBa0IsR0FBRyxJQUFJLEdBQUcsRUFBdUIsQ0FBQztBQUV4RDs7Ozs7OztHQU9HO0FBQ0gsTUFBTSxVQUFVLGFBQWEsQ0FBQyxHQUFHLFlBQXNCO0lBQ3JELE9BQU8sQ0FBQyxNQUFXLEVBQUUsRUFBRTtRQUNyQixrQkFBa0IsQ0FBQyxHQUFHLENBQUMsTUFBTSxFQUFFLFlBQVksQ0FBQyxDQUFDO1FBQzdDLE9BQU8sTUFBTSxDQUFDO0lBQ2hCLENBQUMsQ0FBQztBQUNKLENBQUM7QUFFRDs7OztHQUlHO0FBQ0gsTUFBTSxVQUFVLGtCQUFrQjtJQUNoQyxPQUFPLEtBQUssQ0FBQyxJQUFJLENBQUMsa0JBQWtCLENBQUMsSUFBSSxFQUFFLENBQUMsQ0FBQztBQUMvQyxDQUFDO0FBRUQ7Ozs7Ozs7R0FPRztBQUNILE1BQU0sVUFBVSxrQkFBa0IsQ0FBQyxJQUFnQjtJQUNqRCxPQUFPLENBQUMsSUFBSSxJQUFJLGtCQUFrQixDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsQ0FBQyxJQUFJLEVBQUUsQ0FBQztBQUN0RCxDQUFDO0FBRUQ7OztHQUdHO0FBQ0gsTUFBTSxVQUFVLGtCQUFrQjtJQUNoQyxrQkFBa0IsR0FBRyxJQUFJLEdBQUcsRUFBRSxDQUFDO0FBQ2pDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBUeXBlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5cbi8qKlxuICogTWFwIG9mIHR5cGVzIHRvIHN0eWxlIG1vZHVsZXMuXG4gKi9cbmxldCBUWVBFX1NUWUxFX01PRFVMRVMgPSBuZXcgTWFwPFR5cGU8YW55Piwgc3RyaW5nW10+KCk7XG5cbi8qKlxuICogRGVjb3JhdG9yIHRoYXQgcmVnaXN0ZXJzIHN0eWxlIG1vZHVsZXMgdG8gYmUgaW5qZWN0ZWQgZm9yIGEgZ2l2ZW4gY29tcG9uZW50XG4gKiB0eXBlLiBPbmUgb3IgbW9yZSBzdHlsZSBtb2R1bGVzIG1heSBiZSBzcGVjaWZpZWQuXG4gKlxuICogQHBhcmFtIHN0eWxlTW9kdWxlIGEgc3R5bGUgbW9kdWxlIHRvIGluY2x1ZGVcbiAqIEBwYXJhbSBzdHlsZU1vZHVsZXMgYWRkaXRpb25hbCBzdHlsZSBtb2R1bGVzIHRvIGluY2x1ZGVcbiAqIEByZXR1cm5zIGEgY2xhc3MgZGVjb3JhdG9yXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBJbmNsdWRlU3R5bGVzKC4uLnN0eWxlTW9kdWxlczogc3RyaW5nW10pOiBDbGFzc0RlY29yYXRvciB7XG4gIHJldHVybiAodGFyZ2V0OiBhbnkpID0+IHtcbiAgICBUWVBFX1NUWUxFX01PRFVMRVMuc2V0KHRhcmdldCwgc3R5bGVNb2R1bGVzKTtcbiAgICByZXR1cm4gdGFyZ2V0O1xuICB9O1xufVxuXG4vKipcbiAqIFJldHJpZXZlcyBhbGwgdHlwZXMgdGhhdCBoYXZlIGJlZW4gZGVjb3JhdGVkIHdpdGggYEBJbmNsdWRlU3R5bGVzKClgLlxuICpcbiAqIEByZXR1cm5zIGFuIGFycmF5IG9mIGFsbCBkZWNvcmF0ZWQgdHlwZXNcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGdldFJlZ2lzdGVyZWRUeXBlcygpOiBBcnJheTxUeXBlPGFueT4+IHtcbiAgcmV0dXJuIEFycmF5LmZyb20oVFlQRV9TVFlMRV9NT0RVTEVTLmtleXMoKSk7XG59XG5cbi8qKlxuICogUmV0cmlldmVzIHRoZSBzdHlsZSBtb2R1bGVzIGZvciBhIGdpdmVuIHR5cGUgdGhhdCB3YXMgZGVjb3JhdGVkIHdpdGhcbiAqIGBASW5jbHVkZVN0eWxlcygpYFxuICpcbiAqIEBwYXJhbSB0eXBlIHRoZSB0eXBlIHRvIHJldHJpZXZlIHN0eWxlIG1vZHVsZXMgZm9yXG4gKiBAcmV0dXJucyBhbiBhcnJheSBvZiBzdHlsZSBtb2R1bGVzIGZvciB0aGUgZGVjb3JhdGVkIHR5cGUsIG9yIGFuIGVtcHR5XG4gKiAgIGFycmF5IGlmIHRoZSB0eXBlIHdhcyBub3QgZGVjb3JhdGVkXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBnZXRTdHlsZU1vZHVsZXNGb3IodHlwZT86IFR5cGU8YW55Pik6IHN0cmluZ1tdIHtcbiAgcmV0dXJuICh0eXBlICYmIFRZUEVfU1RZTEVfTU9EVUxFUy5nZXQodHlwZSkpIHx8IFtdO1xufVxuXG4vKipcbiAqIFJlc2V0cyBhbGwgdHlwZXMgZGVjb3JhdGVkIHdpdGggYEBJbmNsdWRlU3R5bGVzKClgLiBTaG91bGQgb25seSBiZSB1c2VkIGZvclxuICogdGVzdGluZy5cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIHJlc2V0SW5jbHVkZVN0eWxlcygpIHtcbiAgVFlQRV9TVFlMRV9NT0RVTEVTID0gbmV3IE1hcCgpO1xufVxuIl19

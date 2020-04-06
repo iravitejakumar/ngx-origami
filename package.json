@@ -1,0 +1,63 @@
+{
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
+  "name": "@codebakery/origami",
+  "version": "3.1.2",
+  "description": "Angular + Polymer",
+  "keywords": [
+    "Angular",
+    "Polymer",
+    "webcomponents",
+    "elements"
+  ],
+  "contributors": [
+    "Liz Mitchell <asyncliz@gmail.com>",
+    "Andrew Mitchell <abmitchell77@gmail.com>"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hotforfeature/origami.git"
+  },
+  "homepage": "https://github.com/hotforfeature/origami#readme",
+  "bugs": {
+    "url": "https://github.com/hotforfeature/origami/issues"
+  },
+  "bin": {
+    "origami": "./bin/origami.js"
+  },
+  "lint-staged": {
+    "*.{js,ts,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "node-glob": "^1.2.0",
+    "parse5": "^5.0.0",
+    "progress": "^2.0.0",
+    "yargs": "^12.0.1"
+  },
+  "peerDependencies": {
+    "@angular/core": "^5.0.0-rc.0 || ^5.0.0 || ^6.0.0-rc.0 || ^6.0.0 || ^7.0.0-rc.0 || ^7.0.0 || ^8.0.0-rc.0 || ^8.0.0 || ^9.0.0",
+    "@angular/common": "^5.0.0-rc.0 || ^5.0.0 || ^6.0.0-rc.0 || ^6.0.0 || ^7.0.0-rc.0 || ^7.0.0 || ^8.0.0-rc.0 || ^8.0.0 || ^9.0.0",
+    "@angular/forms": "^5.0.0-rc.0 || ^5.0.0 || ^6.0.0-rc.0 || ^6.0.0 || ^7.0.0-rc.0 || ^7.0.0 || ^8.0.0-rc.0 || ^8.0.0 || ^9.0.0",
+    "@angular/router": "^5.0.0-rc.0 || ^5.0.0 || ^6.0.0-rc.0 || ^6.0.0 || ^7.0.0-rc.0 || ^7.0.0 || ^8.0.0-rc.0 || ^8.0.0 || ^9.0.0",
+    "@polymer/polymer": "^3.0.5",
+    "@webcomponents/webcomponentsjs": "^2.0.4",
+    "tslib": "^1.7.0"
+  },
+  "engine": {
+    "node": ">=8.0.0"
+  },
+  "main": "bundles/origami.umd.js",
+  "module": "fesm5/origami.js",
+  "es2015": "fesm2015/origami.js",
+  "esm5": "esm5/origami.js",
+  "esm2015": "esm2015/origami.js",
+  "fesm5": "fesm5/origami.js",
+  "fesm2015": "fesm2015/origami.js",
+  "typings": "origami.d.ts",
+  "metadata": "origami.metadata.json",
+  "sideEffects": false
+}

@@ -1,0 +1,44 @@
+import { getRegisteredTypes } from './include-styles';
+let SELECTOR_TO_TYPE = new Map();
+let TYPE_TO_SELECTOR = new Map();
+/**
+ * Scans a `ComponentFactoryResolver` for types decorated with
+ * `@IncludeStyles()` to build a map of types and selectors.
+ *
+ * @param resolver the `ComponentFactoryResolver` to scan
+ */
+export function scanComponentFactoryResolver(resolver) {
+    Array.from(getRegisteredTypes()).forEach(type => {
+        if (!TYPE_TO_SELECTOR.has(type)) {
+            try {
+                const factory = resolver.resolveComponentFactory(type);
+                TYPE_TO_SELECTOR.set(type, factory.selector);
+                SELECTOR_TO_TYPE.set(factory.selector, type);
+            }
+            catch (err) {
+                // No component factory found
+            }
+        }
+    });
+}
+/**
+ * Retrieves the component type for a given selector string. The component must
+ * have been decorated by `@IncludeStyles()` and scanned by
+ * `scanComponentFactoryResolver()`.
+ *
+ * @param selector the selector of the component type
+ * @returns the component type, or undefined if the type is not decorated or
+ *   scanned
+ */
+export function getTypeFor(selector) {
+    return SELECTOR_TO_TYPE.get(selector);
+}
+/**
+ * Resets the type selector maps that were scanned by
+ * `scanComponentFactoryResolver()`. This should only be used for testing.
+ */
+export function resetTypeSelectors() {
+    SELECTOR_TO_TYPE = new Map();
+    TYPE_TO_SELECTOR = new Map();
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidHlwZS1zZWxlY3RvcnMuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AY29kZWJha2VyeS9vcmlnYW1pL3N0eWxlcy8iLCJzb3VyY2VzIjpbInNyYy9tb2R1bGVzL3R5cGUtc2VsZWN0b3JzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBLE9BQU8sRUFBRSxrQkFBa0IsRUFBRSxNQUFNLGtCQUFrQixDQUFDO0FBRXRELElBQUksZ0JBQWdCLEdBQUcsSUFBSSxHQUFHLEVBQXFCLENBQUM7QUFDcEQsSUFBSSxnQkFBZ0IsR0FBRyxJQUFJLEdBQUcsRUFBcUIsQ0FBQztBQUVwRDs7Ozs7R0FLRztBQUNILE1BQU0sVUFBVSw0QkFBNEIsQ0FDMUMsUUFBa0M7SUFFbEMsS0FBSyxDQUFDLElBQUksQ0FBQyxrQkFBa0IsRUFBRSxDQUFDLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxFQUFFO1FBQzlDLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLEVBQUU7WUFDL0IsSUFBSTtnQkFDRixNQUFNLE9BQU8sR0FBRyxRQUFRLENBQUMsdUJBQXVCLENBQUMsSUFBSSxDQUFDLENBQUM7Z0JBQ3ZELGdCQUFnQixDQUFDLEdBQUcsQ0FBQyxJQUFJLEVBQUUsT0FBTyxDQUFDLFFBQVEsQ0FBQyxDQUFDO2dCQUM3QyxnQkFBZ0IsQ0FBQyxHQUFHLENBQUMsT0FBTyxDQUFDLFFBQVEsRUFBRSxJQUFJLENBQUMsQ0FBQzthQUM5QztZQUFDLE9BQU8sR0FBRyxFQUFFO2dCQUNaLDZCQUE2QjthQUM5QjtTQUNGO0lBQ0gsQ0FBQyxDQUFDLENBQUM7QUFDTCxDQUFDO0FBRUQ7Ozs7Ozs7O0dBUUc7QUFDSCxNQUFNLFVBQVUsVUFBVSxDQUFDLFFBQWdCO0lBQ3pDLE9BQU8sZ0JBQWdCLENBQUMsR0FBRyxDQUFDLFFBQVEsQ0FBQyxDQUFDO0FBQ3hDLENBQUM7QUFFRDs7O0dBR0c7QUFDSCxNQUFNLFVBQVUsa0JBQWtCO0lBQ2hDLGdCQUFnQixHQUFHLElBQUksR0FBRyxFQUFFLENBQUM7SUFDN0IsZ0JBQWdCLEdBQUcsSUFBSSxHQUFHLEVBQUUsQ0FBQztBQUMvQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQ29tcG9uZW50RmFjdG9yeVJlc29sdmVyLCBUeXBlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBnZXRSZWdpc3RlcmVkVHlwZXMgfSBmcm9tICcuL2luY2x1ZGUtc3R5bGVzJztcblxubGV0IFNFTEVDVE9SX1RPX1RZUEUgPSBuZXcgTWFwPHN0cmluZywgVHlwZTxhbnk+PigpO1xubGV0IFRZUEVfVE9fU0VMRUNUT1IgPSBuZXcgTWFwPFR5cGU8YW55Piwgc3RyaW5nPigpO1xuXG4vKipcbiAqIFNjYW5zIGEgYENvbXBvbmVudEZhY3RvcnlSZXNvbHZlcmAgZm9yIHR5cGVzIGRlY29yYXRlZCB3aXRoXG4gKiBgQEluY2x1ZGVTdHlsZXMoKWAgdG8gYnVpbGQgYSBtYXAgb2YgdHlwZXMgYW5kIHNlbGVjdG9ycy5cbiAqXG4gKiBAcGFyYW0gcmVzb2x2ZXIgdGhlIGBDb21wb25lbnRGYWN0b3J5UmVzb2x2ZXJgIHRvIHNjYW5cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIHNjYW5Db21wb25lbnRGYWN0b3J5UmVzb2x2ZXIoXG4gIHJlc29sdmVyOiBDb21wb25lbnRGYWN0b3J5UmVzb2x2ZXJcbikge1xuICBBcnJheS5mcm9tKGdldFJlZ2lzdGVyZWRUeXBlcygpKS5mb3JFYWNoKHR5cGUgPT4ge1xuICAgIGlmICghVFlQRV9UT19TRUxFQ1RPUi5oYXModHlwZSkpIHtcbiAgICAgIHRyeSB7XG4gICAgICAgIGNvbnN0IGZhY3RvcnkgPSByZXNvbHZlci5yZXNvbHZlQ29tcG9uZW50RmFjdG9yeSh0eXBlKTtcbiAgICAgICAgVFlQRV9UT19TRUxFQ1RPUi5zZXQodHlwZSwgZmFjdG9yeS5zZWxlY3Rvcik7XG4gICAgICAgIFNFTEVDVE9SX1RPX1RZUEUuc2V0KGZhY3Rvcnkuc2VsZWN0b3IsIHR5cGUpO1xuICAgICAgfSBjYXRjaCAoZXJyKSB7XG4gICAgICAgIC8vIE5vIGNvbXBvbmVudCBmYWN0b3J5IGZvdW5kXG4gICAgICB9XG4gICAgfVxuICB9KTtcbn1cblxuLyoqXG4gKiBSZXRyaWV2ZXMgdGhlIGNvbXBvbmVudCB0eXBlIGZvciBhIGdpdmVuIHNlbGVjdG9yIHN0cmluZy4gVGhlIGNvbXBvbmVudCBtdXN0XG4gKiBoYXZlIGJlZW4gZGVjb3JhdGVkIGJ5IGBASW5jbHVkZVN0eWxlcygpYCBhbmQgc2Nhbm5lZCBieVxuICogYHNjYW5Db21wb25lbnRGYWN0b3J5UmVzb2x2ZXIoKWAuXG4gKlxuICogQHBhcmFtIHNlbGVjdG9yIHRoZSBzZWxlY3RvciBvZiB0aGUgY29tcG9uZW50IHR5cGVcbiAqIEByZXR1cm5zIHRoZSBjb21wb25lbnQgdHlwZSwgb3IgdW5kZWZpbmVkIGlmIHRoZSB0eXBlIGlzIG5vdCBkZWNvcmF0ZWQgb3JcbiAqICAgc2Nhbm5lZFxuICovXG5leHBvcnQgZnVuY3Rpb24gZ2V0VHlwZUZvcihzZWxlY3Rvcjogc3RyaW5nKTogVHlwZTxhbnk+IHwgdW5kZWZpbmVkIHtcbiAgcmV0dXJuIFNFTEVDVE9SX1RPX1RZUEUuZ2V0KHNlbGVjdG9yKTtcbn1cblxuLyoqXG4gKiBSZXNldHMgdGhlIHR5cGUgc2VsZWN0b3IgbWFwcyB0aGF0IHdlcmUgc2Nhbm5lZCBieVxuICogYHNjYW5Db21wb25lbnRGYWN0b3J5UmVzb2x2ZXIoKWAuIFRoaXMgc2hvdWxkIG9ubHkgYmUgdXNlZCBmb3IgdGVzdGluZy5cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIHJlc2V0VHlwZVNlbGVjdG9ycygpIHtcbiAgU0VMRUNUT1JfVE9fVFlQRSA9IG5ldyBNYXAoKTtcbiAgVFlQRV9UT19TRUxFQ1RPUiA9IG5ldyBNYXAoKTtcbn1cbiJdfQ==

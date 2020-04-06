@@ -1,0 +1,17 @@
+import { __decorate } from "tslib";
+import { NgModule } from '@angular/core';
+import { OrigamiControlValueAccessor } from './value-accessor';
+/**
+ * Provides support for template and reactive Angular form directives and
+ * custom elements.
+ */
+let OrigamiFormsModule = class OrigamiFormsModule {
+};
+OrigamiFormsModule = __decorate([
+    NgModule({
+        declarations: [OrigamiControlValueAccessor],
+        exports: [OrigamiControlValueAccessor]
+    })
+], OrigamiFormsModule);
+export { OrigamiFormsModule };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZm9ybXMubW9kdWxlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGNvZGViYWtlcnkvb3JpZ2FtaS9mb3Jtcy8iLCJzb3VyY2VzIjpbInNyYy9mb3Jtcy5tb2R1bGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLE9BQU8sRUFBRSxRQUFRLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDekMsT0FBTyxFQUFFLDJCQUEyQixFQUFFLE1BQU0sa0JBQWtCLENBQUM7QUFFL0Q7OztHQUdHO0FBS0gsSUFBYSxrQkFBa0IsR0FBL0IsTUFBYSxrQkFBa0I7Q0FBRyxDQUFBO0FBQXJCLGtCQUFrQjtJQUo5QixRQUFRLENBQUM7UUFDUixZQUFZLEVBQUUsQ0FBQywyQkFBMkIsQ0FBQztRQUMzQyxPQUFPLEVBQUUsQ0FBQywyQkFBMkIsQ0FBQztLQUN2QyxDQUFDO0dBQ1csa0JBQWtCLENBQUc7U0FBckIsa0JBQWtCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmdNb2R1bGUgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IE9yaWdhbWlDb250cm9sVmFsdWVBY2Nlc3NvciB9IGZyb20gJy4vdmFsdWUtYWNjZXNzb3InO1xuXG4vKipcbiAqIFByb3ZpZGVzIHN1cHBvcnQgZm9yIHRlbXBsYXRlIGFuZCByZWFjdGl2ZSBBbmd1bGFyIGZvcm0gZGlyZWN0aXZlcyBhbmRcbiAqIGN1c3RvbSBlbGVtZW50cy5cbiAqL1xuQE5nTW9kdWxlKHtcbiAgZGVjbGFyYXRpb25zOiBbT3JpZ2FtaUNvbnRyb2xWYWx1ZUFjY2Vzc29yXSxcbiAgZXhwb3J0czogW09yaWdhbWlDb250cm9sVmFsdWVBY2Nlc3Nvcl1cbn0pXG5leHBvcnQgY2xhc3MgT3JpZ2FtaUZvcm1zTW9kdWxlIHt9XG4iXX0=

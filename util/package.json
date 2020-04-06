@@ -1,0 +1,14 @@
+{
+  "$schema": "../node_modules/ng-packagr/package.schema.json",
+  "sideEffects": true,
+  "main": "../bundles/origami-util.umd.js",
+  "module": "../fesm5/origami-util.js",
+  "es2015": "../fesm2015/origami-util.js",
+  "esm5": "../esm5/util/origami-util.js",
+  "esm2015": "../esm2015/util/origami-util.js",
+  "fesm5": "../fesm5/origami-util.js",
+  "fesm2015": "../fesm2015/origami-util.js",
+  "typings": "origami-util.d.ts",
+  "metadata": "origami-util.metadata.json",
+  "name": "@codebakery/origami/util"
+}
